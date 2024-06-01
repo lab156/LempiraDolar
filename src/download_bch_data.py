@@ -9,7 +9,7 @@ def download_bch(url=url, write_to=None):
     Downloads an excel file from `url` and optionally writes
     to write_to full path
     '''
-    resp = rq.get(url, allow_redirects=True)
+    resp = rq.get(url, allow_redirects=True, verify=False)
     if not resp.ok:
         return None
 
