@@ -1,5 +1,6 @@
 import json
 import requests
+import datetime
 
 url = "https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search"
 # https://p2p.binance.com/en/trade/all-payments
@@ -45,4 +46,7 @@ def get_best_price():
 
 if __name__ == "__main__":
     pr = get_best_price()
-    print(pr)
+    ct = datetime.datetime.now()
+    print(ct, ", ", pr)
+    with open("/home/luis/best_p2p_prices.csv", 'a') as fobj:
+        fobj.write("{} , {}\n".format(ct, pr))
