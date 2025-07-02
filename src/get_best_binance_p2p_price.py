@@ -1,6 +1,7 @@
 import json
 import requests
 import datetime
+import os
 
 url = "https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search"
 # https://p2p.binance.com/en/trade/all-payments
@@ -48,5 +49,6 @@ if __name__ == "__main__":
     pr = get_best_price()
     ct = datetime.datetime.now()
     print(ct, ", ", pr)
-    with open("/home/luis/best_p2p_prices.csv", 'a') as fobj:
+    home_dir = os.path.expanduser('~')
+    with open(home_dir + "/best_p2p_prices.csv", 'a') as fobj:
         fobj.write("{} , {}\n".format(ct, pr))

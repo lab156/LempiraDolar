@@ -58,8 +58,8 @@ def download_bch(url=url, write_to=wrt):
 
 def main():
     df = download_bch()
-    print(df.head(20))
-    print(df.tail(20))
+    #print(df.head(20))
+    #print(df.tail(20))
     json_str = df.to_json(orient='records',
                date_format='iso', lines=True)
     with open(wrt+'.json', 'w+') as fobj:
